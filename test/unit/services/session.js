@@ -20,23 +20,6 @@ describe("session service", function() {
 
     }));
 
-    // fake restful API for the session service
-    beforeEach(module(function($provide) {
-
-        $provide.value("restful", {
-            post: function(path, data) {
-                return {
-                    success: function(callback) {
-                        data["auth-token"] = "abcd";
-                        data.success = true;
-                        callback(data);
-                    }
-                }
-            }
-        });
-
-    }));
-
     it("should expose isLoggedIn, getAuthToken, getUserName, login and logout methods", inject(function(session) {
         expect(session.isLoggedIn).toBeDefined();
         expect(session.getAuthToken).toBeDefined();
