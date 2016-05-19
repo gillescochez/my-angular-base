@@ -1,0 +1,8 @@
+node_modules/
+dependencies/
+app/dependencies/
+app/app.js
+.idea
+dist
+.log
+documentation
