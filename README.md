@@ -1,6 +1,6 @@
 # My Angular Base
 
-A Angular.js base application to help speed up the development of SPAs
+Angular.js base application to help speed up the development of SPAs
 
 ## How to run the application
 
