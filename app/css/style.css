@@ -1,0 +1,31 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,300,100);
+
+body {
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+}
+
+.panel .panel-heading,
+.navbar-brand,
+.table th,
+h1, h2, h3, h4, h5, h6,
+.label {
+    text-transform: uppercase;
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.panel {
+    margin: 10px 20px;
+    box-shadow: 4px 4px 6px rgba(125, 125, 125, .5);
+}
+
+#login {
+    width: 300px;
+    margin: 10px auto;
+}
