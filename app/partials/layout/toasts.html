@@ -1,0 +1,6 @@
+<div ng-controller="toasts" id="toasts">
+    <div ng-repeat="toast in toasts" class="alert alert-{{toast.type}}" role="alert" ng-class="{toasted: toast.enabled}">
+        <span class="close" ng-click="close($index)">&times;</span>
+        {{toast.message}}
+    </div>
+</div>
