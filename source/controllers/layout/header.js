@@ -1,3 +1,8 @@
+/**
+ * Header controller
+ * @param $scope
+ * @param session
+ */
 controllers.header = function($scope, session) {
 
     $scope.username = session.getUserName() || "";
@@ -11,3 +16,9 @@ controllers.header = function($scope, session) {
         $scope.username = "";
     };
 };
+
+/**
+ * Dependencies
+ * @type {string[]}
+ */
+controllers.header.$inject = ["$scope", "session"];
