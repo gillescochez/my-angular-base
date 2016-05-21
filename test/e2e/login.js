@@ -36,6 +36,8 @@ describe("login", function() {
         browser.waitForAngular();
 
         expect(browser.getLocationAbsUrl()).toMatch("home");
+
+        element(by.css('#nav-logout')).click();
     });
 
 });
