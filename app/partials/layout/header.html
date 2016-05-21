@@ -14,8 +14,8 @@
 
         <div class="collapse navbar-collapse" collapse="isCollapsed">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/login" ng-show="username == ''">{{i18n('login')}}</a></li>
-                <li><a href="#" ng-click="logout()" ng-show="username != ''">{{i18n('logout')}}</a></li>
+                <li><a href="#/login" ng-show="username == ''" id="nav-login">{{i18n('login')}}</a></li>
+                <li><a href="#" ng-click="logout()" ng-show="username != ''" id="nav-logout">{{i18n('logout')}}</a></li>
             </ul>
             <p class="navbar-text navbar-right" ng-show="username != ''">
                 {{i18n('logged_in_as')}} {{username}}
