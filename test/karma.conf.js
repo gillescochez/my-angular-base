@@ -12,6 +12,7 @@ module.exports = function(config) {
 			"source/config/*.js",
 			"source/controllers/*.js",
 			"source/directives/*.js",
+			"source/filters/*.js",
 			"source/locales/*.js",
 			"source/services/*.js",
 			"source/app/*.js",

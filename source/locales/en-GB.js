@@ -13,5 +13,8 @@ locales["en-GB"] = {
     logout: "Logout",
     logged_in_as: "Logged in as",
 
+    yes: "Yes",
+    no: "No",
+
     home: "Home"
 };
