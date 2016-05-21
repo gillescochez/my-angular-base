@@ -19,23 +19,9 @@ describe("login controller", function() {
             }
         });
 
-        // fake session service
-        $provide.value("session", {
-            username: "",
-            setUserName: function(name) {
-                this.username = name;
-            },
-            getUserName: function() {
-                return this.username
-            },
-            logout: function() {
-                this.username = "";
-            }
-        });
-
     }));
 
-    it("should have an empty username property", inject(function($rootScope, $controller) {
+    it("should expose date to the template engine", inject(function($rootScope, $controller) {
 
         var scope = $rootScope.$new();
 
@@ -43,42 +29,7 @@ describe("login controller", function() {
             $scope: scope
         });
 
-        expect(scope.username).toEqual("");
-
-    }));
-
-    it("should have the username property set on login", inject(function($rootScope, $controller, session) {
-
-        var scope = $rootScope.$new();
-
-        $controller("main", {
-            $scope: scope
-        });
-
-        session.setUserName("foo");
-
-        $rootScope.$broadcast(constants.events.user.login);
-
-        expect(scope.username).toEqual("foo");
-
-    }));
-
-    it("should have an empty username property on logout", inject(function($rootScope, $controller, session) {
-
-        var scope = $rootScope.$new();
-
-        $controller("main", {
-            $scope: scope
-        });
-
-        session.setUserName("foo");
-        $rootScope.$broadcast(constants.events.user.login);
-
-        expect(scope.username).toEqual("foo");
-
-        scope.logout();
-
-        expect(scope.username).toEqual("");
+        expect(scope.date).toBeDefined();
 
     }));
 
