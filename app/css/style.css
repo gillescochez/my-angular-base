@@ -1,17 +1,12 @@
+/**
+    Global
+**/
 body {
     font-family: Helvetica, Arial, sans-serif;
     background: #f4f4f4;
     margin: 0;
     padding: 0;
     bottom: 0;
-}
-
-.panel .panel-heading,
-.navbar-brand,
-.table th,
-h1, h2, h3, h4, h5, h6,
-.label {
-    text-transform: uppercase;
 }
 
 .navbar {
@@ -23,6 +18,27 @@ h1, h2, h3, h4, h5, h6,
     box-shadow: 4px 4px 6px rgba(125, 125, 125, .5);
 }
 
+/**
+    Toasts
+**/
+#toasts {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 65%;
+}
+#toasts .alert {
+    transition: 1s;
+    opacity: 0;
+}
+#toasts .alert.toasted {
+    transition: 1s;
+    opacity: 1;
+}
+
+/**
+    Login
+**/
 #login {
     width: 300px;
     margin: 10px auto;

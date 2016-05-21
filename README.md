@@ -67,3 +67,20 @@ services.users.$inject = ["restful"];
 ```
 
 The users service now have `getAll`, `getById`, `add`, `save` and `remove` methods available and ready to use.
+
+## Toasts Service
+
+Basic toasts implementation to pass on messages to the user. Bootstrap alert styling used.
+API consist of 4 methods `info`, `success`, `warning` and `error`. Use from anywhere like below.
+
+```javascript
+
+controllers.myController = function($scope, toasts) {
+	$scope.toastIt = function(message) {
+		toasts.info(message);
+	};
+};
+
+controllers.myController.$inject = ["$scope", "toasts"];
+
+```
