@@ -66,4 +66,4 @@ services.users.$inject = ["restful"];
 
 ```
 
-The users service now have `getAll`, `getById`, `add`, `save` and `remove` methods available and ready to us.
+The users service now have `getAll`, `getById`, `add`, `save` and `remove` methods available and ready to use.
