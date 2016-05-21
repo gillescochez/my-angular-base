@@ -10,7 +10,7 @@ module.exports = function(config) {
 			"source/constants.js",
 			"source/namespace.js",
 			"source/config/*.js",
-			"source/controllers/abstract/*.js",
+			"source/controllers/*/*.js",
 			"source/controllers/*.js",
 			"source/directives/*.js",
 			"source/filters/*.js",
@@ -18,6 +18,7 @@ module.exports = function(config) {
 			"source/services/abstract/*.js",
 			"source/services/*.js",
 			"source/app/*.js",
+            "test/unit/*/*/*.js",
             "test/unit/*/*.js",
             "test/unit/*.js"
         ],
