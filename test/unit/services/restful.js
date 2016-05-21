@@ -10,4 +10,20 @@ describe("restful service", function() {
         expect(restful.post).toBeDefined();
     }));
 
+    it("should expose a put method", inject(function(restful) {
+        expect(restful.put).toBeDefined();
+    }));
+
+    it("should expose a destroy method", inject(function(restful) {
+        expect(restful.destroy).toBeDefined();
+    }));
+
+    it("should expose a postAndUpload method", inject(function(restful) {
+        expect(restful.postAndUpload).toBeDefined();
+    }));
+
+    it("should expose a putAndUpload method", inject(function(restful) {
+        expect(restful.putAndUpload).toBeDefined();
+    }));
+
 });
