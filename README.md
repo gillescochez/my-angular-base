@@ -113,7 +113,7 @@ Here is the list of properties that can be passed to the router.
 
 ```javascript
 
-var settings = {
+{
 	service: Object, // Service respecting API from services.abstract.api
 	serviceMethod: String, // Can be used to specify a method to use for fetching data
 	serviceId: Integer, // ID that is passed to the method used for listing items
