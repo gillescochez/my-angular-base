@@ -12,7 +12,7 @@ Angular.js base application to help speed up the development of SPAs
 
 ```npm start``` to start the application
 
-Then access the app at [http://localhost:8000/app](http://localhost:8000/app)
+Then access the app at [http://localhost:8000](http://localhost:8000)
 
 ### Testing 
 
