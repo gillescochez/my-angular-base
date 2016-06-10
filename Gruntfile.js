@@ -16,21 +16,6 @@ module.exports = function(grunt) {
         "source/build/outro.js"
     ];
 
-	var docSources = [
-		"./source/namespace.js",
-		"./source/constants.js",
-		"./source/config/*.js",
-		"./source/controllers/*/*.js",
-		"./source/controllers/*.js",
-		"./source/directives/*.js",
-		"./source/locales/*.js",
-		"./source/services/abstract/*.js",
-		"./source/services/*.js",
-		"./source/filters/*.js",
-		"./source/app/*.js",
-		"README.md"
-	];
-
     var dependencies = [
         "dependencies/bootstrap/dist/css/bootstrap.min.css",
         "dependencies/bootstrap/dist/fonts/glyphicons-halflings-regular.eot",
@@ -57,6 +42,9 @@ module.exports = function(grunt) {
     var app = "app/app.js";
 
     var tasks = ["concat", "uglify", "copy", "clean"];
+
+    var docSources = sources.slice(1, -1);
+    docSources.push("./README.md");
 
     // config
     grunt.initConfig({
@@ -93,9 +81,7 @@ module.exports = function(grunt) {
 			dist : {
 				src: docSources,
 				options: {
-					destination: "documentation",
-					template : "node_modules/grunt-jsdoc/node_modules/ink-docstrap/template",
-					configure : "node_modules/grunt-jsdoc/node_modules/ink-docstrap/template/jsdoc.conf.json"
+					destination: "documentation"
 				}
 			}
 		},
