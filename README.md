@@ -4,6 +4,10 @@ Angular.js base application to help speed up the development of SPAs
 
 ## Command lines
 
+### Running the application
+
+```npm start``` dependencies will be installed and the app will be build before the http server starts
+
 ### Installing
 
 ```npm install``` to install dependencies

@@ -25,7 +25,7 @@
     "scripts": {
       "postinstall": "bower install",
 
-      "prestart": "npm install",
+      "prestart": "npm install && grunt",
       "start": "http-server -a localhost -p 8000 -c-1 ./app",
 
       "pretest": "npm install",
