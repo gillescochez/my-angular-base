@@ -18,10 +18,7 @@ module.exports = function(grunt) {
 
     var dependencies = [
         "dependencies/bootstrap/dist/css/bootstrap.min.css",
-        "dependencies/bootstrap/dist/fonts/glyphicons-halflings-regular.eot",
-        "dependencies/bootstrap/dist/fonts/glyphicons-halflings-regular.svg",
-        "dependencies/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf",
-        "dependencies/bootstrap/dist/fonts/glyphicons-halflings-regular.woff",
+        "dependencies/bootstrap/dist/fonts/*.*",
         "dependencies/angular/angular.min.js",
         "dependencies/angular/angular.min.js.map",
         "dependencies/angular-cookies/angular-cookies.min.js",
