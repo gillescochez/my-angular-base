@@ -52,7 +52,7 @@ controllers.myController = function() {};
 
 ```
 
-It will be automatically added to the application services module.
+It will be automatically added to the application controllers module.
 
 ## Abstract Helper for services
 
@@ -74,7 +74,7 @@ The users service now have `getAll`, `getById`, `add`, `save` and `remove` metho
 
 ## Abstract Helpers for controllers
 
-In /source/controllers/abstract there is many files that can be use to create new CMS section quickly. Only one controller
+In /source/controllers/abstract there are many files that can be use to create new CMS section quickly. Only one controller
 need to be set in order to handle listing entries, viewing entry, editing, creating and removing of entries.
 
 This system also support checking for required fields, hidden fields, custom validation methods, editing inside a modal,
