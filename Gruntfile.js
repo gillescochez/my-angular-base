@@ -7,38 +7,33 @@ module.exports = function(grunt) {
         "source/config/*.js",
         "source/controllers/*/*.js",
         "source/controllers/*.js",
+        "source/directives/*/*.js",
         "source/directives/*.js",
         "source/locales/*.js",
-        "source/services/abstract/*.js",
+        "source/services/*/*.js",
         "source/services/*.js",
+        "source/filters/*/*.js",
         "source/filters/*.js",
         "source/app/*.js",
         "source/build/outro.js"
     ];
 
-    var dependencies = [
-        "dependencies/bootstrap/dist/css/bootstrap.min.css",
-        "dependencies/bootstrap/dist/fonts/*.*",
-        "dependencies/angular/angular.min.js",
-        "dependencies/angular/angular.min.js.map",
-        "dependencies/angular-cookies/angular-cookies.min.js",
-        "dependencies/angular-cookies/angular-cookies.min.js.map",
-        "dependencies/angular-loader/angular-loader.min.js",
-        "dependencies/angular-loader/angular-loader.min.js.map",
-        "dependencies/angular-mocks/angular-mocks.js",
-        "dependencies/angular-route/angular-route.min.js",
-        "dependencies/angular-route/angular-route.min.js.map",
-        "dependencies/angular-ui-bootstrap-bower/ui-bootstrap.min.js",
-        "dependencies/angular-ui-bootstrap-bower/ui-bootstrap-tpls.min.js"
-    ];
+    var dependencies = {
+        fonts: ["dependencies/bootstrap/dist/fonts/*.*"],
+        css: ["dependencies/bootstrap/dist/css/bootstrap.min.css"],
+        js: [
+            "dependencies/angular/angular.min.js",
+            "dependencies/angular-cookies/angular-cookies.min.js",
+            "dependencies/angular-loader/angular-loader.min.js",
+            "dependencies/angular-mocks/angular-mocks.js",
+            "dependencies/angular-route/angular-route.min.js",
+            "dependencies/angular-ui-bootstrap-bower/ui-bootstrap.min.js",
+            "dependencies/angular-ui-bootstrap-bower/ui-bootstrap-tpls.min.js"
+        ]
+    };
 
-    var dependencies_dest = "app/";
-
-    var src = "dist/app.src.js";
-    var min = "dist/app.min.js";
-    var app = "app/app.js";
-
-    var tasks = ["concat", "uglify", "copy", "clean"];
+    var appPath = "app/";
+    var dependenciesPath = appPath + "dependencies/";
 
     var docSources = sources.slice(1, -1);
     docSources.push("./README.md");
@@ -49,41 +44,52 @@ module.exports = function(grunt) {
         concat: {
             build: {
                 src: sources,
-                dest: src
+                dest: "app.src.js"
             }
         },
         uglify: {
-            build: {
-                src: [src],
-                dest: min
-            }
-        },
-        watch: {
-            scripts: {
-                files: sources,
-                tasks: tasks
+            app: {
+                src: ["app.src.js"],
+                dest: appPath + "app.js"
+            },
+            dependencies: {
+                src: dependencies.js,
+                dest: dependenciesPath + "js/all.js"
             }
         },
         copy: {
-            main: {
-                src: [min],
-                dest: app
+            fonts: {
+                expand: true,
+                src: dependencies.fonts,
+                dest: dependenciesPath + "fonts/",
+                flatten: true,
+                filter: "isFile"
             },
-            dependencies: {
-                src: dependencies,
-                dest: dependencies_dest
+            css: {
+                expand: true,
+                src: dependencies.css,
+                dest: dependenciesPath + "css/",
+                flatten: true,
+                filter: "isFile"
             }
         },
-		jsdoc : {
-			dist : {
+		jsdoc: {
+			dist: {
 				src: docSources,
 				options: {
 					destination: "documentation"
 				}
 			}
 		},
-        clean: ["dist"]
+        clean: ["app.src.js"],
+        watch: {
+            app: {
+                files: sources,
+                tasks: ["concat", "uglify:app", "clean"]
+            }
+        }
     });
+
     // Load the plugins
     grunt.loadNpmTasks("grunt-contrib-concat");
     grunt.loadNpmTasks("grunt-contrib-uglify");
@@ -93,6 +99,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-jsdoc");
 
     // Default task(s).
-    grunt.registerTask("default", tasks);
+    grunt.registerTask("default", ["concat", "uglify", "copy", "clean"]);
     grunt.registerTask("doc", "jsdoc");
 };
